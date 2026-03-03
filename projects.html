@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Services – ITZFIZZ</title>
+<title>Projects – ITZFIZZ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- GSAP -->
@@ -14,69 +14,142 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
 body{
- background:linear-gradient(135deg,#05001a,#4b00ff,#d100ff,#00eaff);
- background-size:500%;animation:bgflow 20s infinite alternate ease-in-out;
+ background:linear-gradient(135deg,#05001a,#4e00ff,#d100ff,#00eaff,#1300ff);
+ background-size:500%;
+ animation:bgflow 20s infinite alternate ease-in-out;
  color:white;overflow-x:hidden;
 }
-@keyframes bgflow{0%{background-position:0 50%;}50%{background-position:100% 50%;}100%{background-position:0 50%;}}
+@keyframes bgflow{
+ 0%{background-position:0 50%;}
+ 50%{background-position:100% 50%;}
+ 100%{background-position:0 50%;}
+}
 
-nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 25px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);z-index:999;}
+/* NAV */
+nav{
+ position:fixed;top:0;width:100%;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:15px 25px;background:rgba(255,255,255,0.1);
+ backdrop-filter:blur(10px);z-index:999;
+}
 nav a{color:cyan;margin:0 15px;text-decoration:none;font-weight:600;}
 nav h2{color:#00eaff;font-size:25px;font-weight:900;}
 
-header{height:40vh;display:flex;justify-content:center;align-items:center;text-align:center;padding-top:80px;}
-header h1{font-size:45px;font-weight:900;text-shadow:0 0 20px cyan;opacity:0;}
+/* HEADER */
+header{
+ height:45vh;display:flex;justify-content:center;
+ align-items:center;text-align:center;padding-top:80px;
+}
+header h1{
+ font-size:50px;font-weight:900;text-shadow:0 0 25px cyan;
+ opacity:0;
+}
 header p{opacity:0;margin-top:10px;font-size:18px;}
 
-/* SECTIONS */
-.section-title{
- font-size:38px;text-align:center;margin:60px 0 30px 0;
- text-shadow:0 0 20px white;opacity:0;
+/* FILTER BUTTONS */
+.filters{
+ text-align:center;margin:20px 0;
 }
-.services-section{
+.filters button{
+ padding:10px 20px;margin:7px;border:none;border-radius:25px;
+ background:#00eaff;color:black;font-weight:700;
+ box-shadow:0 0 15px #00ffff;cursor:pointer;transition:0.3s;
+}
+.filters button:hover{transform:scale(1.1);}
+.filters button.active{
+ background:white;color:black;
+}
+
+/* PROJECT GRID */
+.projects{
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
- gap:25px;padding:20px 40px;
+ gap:25px;padding:20px 30px;
 }
-.service-card{
- background:rgba(255,255,255,0.08);padding:25px;border-radius:18px;
- backdrop-filter:blur(12px);box-shadow:0 0 25px rgba(255,255,255,0.1);
- opacity:0;transform:translateY(40px);transition:.3s;
+.project-card{
+ background:rgba(255,255,255,0.1);
+ padding:25px;border-radius:18px;
+ box-shadow:0 0 25px rgba(255,255,255,0.1);
+ backdrop-filter:blur(12px);
+ opacity:0;transform:translateY(40px);
+ border:1px solid rgba(255,255,255,0.15);
+ transition:0.3s;
 }
-.service-card:hover{transform:scale(1.05);}
-.service-card i{font-size:50px;margin-bottom:15px;color:#00eaff;}
-.service-card h3{margin:10px 0;color:#00eaff;}
-.service-card p{opacity:.85;line-height:1.5;}
+.project-card:hover{
+ transform:scale(1.06);
+ box-shadow:0 0 30px rgba(0,255,255,0.5);
+}
+.project-card h3{
+ margin:10px 0;color:#00eaff;font-size:23px;
+}
+.project-card p{opacity:.85;font-size:15px;}
 
-/* FEATURES LIST */
-.features-list{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
- gap:20px;padding:20px 40px;margin-top:40px;
+/* CASE STUDIES */
+.case-studies{
+ padding:60px 30px;margin-top:40px;
 }
-.feature-box{
- background:rgba(255,255,255,0.08);padding:20px;border-radius:18px;
- backdrop-filter:blur(10px);box-shadow:0 0 18px rgba(255,255,255,0.15);
+.case-studies h2{
+ text-align:center;font-size:40px;font-weight:900;
+ text-shadow:0 0 20px white;margin-bottom:30px;
+}
+.case-box{
+ background:rgba(255,255,255,0.07);
+ padding:25px;margin:20px auto;border-radius:15px;
+ max-width:850px;box-shadow:0 0 20px rgba(255,255,255,0.2);
  opacity:0;transform:translateY(40px);
 }
-.feature-box i{font-size:35px;margin-bottom:10px;color:#00eaff;}
-.feature-box h4{margin:10px 0;color:#00eaff;}
+.case-box h3{color:#00eaff;font-size:25px;margin-bottom:10px;}
+.case-box p{opacity:0.9;font-size:16px;}
 
-/* CTA */
-.cta-section{
- margin:60px 20px;padding:40px;text-align:center;background:rgba(255,255,255,0.08);
- border-radius:20px;backdrop-filter:blur(12px);box-shadow:0 0 25px rgba(255,255,255,0.12);
+/* TECH SLIDER */
+.tech-slider{
+ margin-top:60px;text-align:center;
 }
-.cta-section h2{margin-bottom:20px;color:#00eaff;}
-.cta-section p{margin-bottom:20px;opacity:.85;}
-.cta-section button{
- padding:12px 25px;font-size:18px;font-weight:700;border:none;border-radius:30px;background:#00eaff;color:#000;
- box-shadow:0 0 20px #00eaff;cursor:pointer;transition:.3s;
+.tech-slider h2{
+ font-size:35px;font-weight:900;text-shadow:0 0 15px cyan;
 }
-.cta-section button:hover{transform:scale(1.05);}
+.tech-logos{
+ white-space:nowrap;overflow:hidden;margin-top:30px;
+}
+.tech-logos img{
+ height:60px;margin:0 25px;filter:drop-shadow(0 0 15px cyan);
+ animation:slide 12s linear infinite;
+}
+@keyframes slide{
+ from{transform:translateX(100%);}
+ to{transform:translateX(-100%);}
+}
+
+/* WHY CHOOSE US */
+.why{
+ padding:60px 30px;margin-top:50px;
+ background:rgba(0,0,0,0.3);
+}
+.why h2{
+ text-align:center;font-size:35px;font-weight:900;
+ text-shadow:0 0 15px pink;margin-bottom:25px;
+}
+.features{
+ display:grid;gap:20px;
+ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+.feature-box{
+ background:rgba(255,255,255,0.08);
+ padding:20px;border-radius:20px;text-align:center;
+ box-shadow:0 0 20px rgba(255,255,255,0.2);
+ opacity:0;transform:translateY(40px);
+}
+.feature-box i{
+ font-size:40px;color:#00eaff;margin-bottom:10px;
+}
 
 /* FOOTER */
-footer{padding:40px;text-align:center;margin-top:50px;background:rgba(255,255,255,0.12);}
+footer{
+ padding:40px;text-align:center;margin-top:70px;
+ background:rgba(255,255,255,0.12);
+}
 footer i{margin:0 12px;font-size:25px;color:#00eaff;}
 </style>
 </head>
@@ -86,89 +159,167 @@ footer i{margin:0 12px;font-size:25px;color:#00eaff;}
 <nav>
  <h2>ITZFIZZ</h2>
  <div>
-   <a href="index.html">Home</a>
-   <a href="projects.html">Projects</a>
-   <a href="about.html">About</a>
-   <a href="services.html">Services</a>
-   <a href="contact.html">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
  </div>
 </nav>
 
 <header>
- <h1 id="title">Our Premium Services</h1>
- <p id="subtitle">We provide a full range of modern digital services for companies & startups.</p>
+ <div>
+  <h1 id="title">Our Premium Projects</h1>
+  <p id="subtitle">Top-quality web, mobile & branding solutions with world-class performance.</p>
+ </div>
 </header>
 
-<!-- MAIN SERVICES -->
-<h2 class="section-title">What We Offer</h2>
-<section class="services-section">
- <div class="service-card">
-   <i class="fa-solid fa-code"></i>
-   <h3>Web Development</h3>
-   <p>Responsive, ultra-fast websites using React, Next.js, Tailwind, and GSAP animations for smooth user experiences.</p>
+<!-- FILTER BUTTONS -->
+<div class="filters">
+ <button class="active" onclick="filter('all')">All</button>
+ <button onclick="filter('web')">Web</button>
+ <button onclick="filter('app')">App</button>
+ <button onclick="filter('brand')">Branding</button>
+</div>
+
+<!-- PROJECT CARDS -->
+<div class="projects">
+
+ <div class="project-card" data-type="web">
+  <h3>⚡ AI Portfolio Website</h3>
+  <p>Next.js • GSAP • Tailwind • Server Actions</p>
  </div>
- <div class="service-card">
-   <i class="fa-solid fa-mobile-screen-button"></i>
-   <h3>App Development</h3>
-   <p>Mobile apps for iOS & Android with beautiful UI/UX, smooth transitions, and scalable architecture.</p>
+
+ <div class="project-card" data-type="app">
+  <h3>📱 Mobile Banking App</h3>
+  <p>React Native • Secure Auth • Clean UI</p>
  </div>
- <div class="service-card">
-   <i class="fa-solid fa-robot"></i>
-   <h3>AI & Automation</h3>
-   <p>Integrating AI and automation workflows to increase productivity and enhance digital experience.</p>
+
+ <div class="project-card" data-type="brand">
+  <h3>🎨 Brand Identity System</h3>
+  <p>Logo Kit • Color System • Typography Grid</p>
  </div>
- <div class="service-card">
-   <i class="fa-solid fa-palette"></i>
-   <h3>Branding & Design</h3>
-   <p>Full branding solutions including logos, UI kits, motion graphics, and visual storytelling.</p>
+
+ <div class="project-card" data-type="web">
+  <h3>🚀 E-Commerce Platform</h3>
+  <p>React • Stripe • Admin Dashboard</p>
  </div>
- <div class="service-card">
+
+ <div class="project-card" data-type="app">
+  <h3>💬 Real-Time Chat App</h3>
+  <p>WebSocket • Push Notifications</p>
+ </div>
+
+ <div class="project-card" data-type="brand">
+  <h3>🖌 Motion Posters</h3>
+  <p>Adobe AE • Graphic Design + Animation</p>
+ </div>
+
+</div>
+
+<!-- CASE STUDIES -->
+<section class="case-studies">
+ <h2>Featured Case Studies</h2>
+
+ <div class="case-box">
+  <h3>📌 E-Commerce Success</h3>
+  <p>Built a scalable platform generating 3× sales using optimized UI, faster load time
+  and conversion-focused design.</p>
+ </div>
+
+ <div class="case-box">
+  <h3>📌 Banking App Modernization</h3>
+  <p>Transformed an outdated mobile app into a modern, secure banking experience.</p>
+ </div>
+
+</section>
+
+<!-- TECH SLIDER -->
+<div class="tech-slider">
+ <h2>Technologies We Use</h2>
+ <div class="tech-logos">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+ </div>
+</div>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+ <h2>Why Choose ITZFIZZ?</h2>
+ <div class="features">
+
+  <div class="feature-box">
    <i class="fa-solid fa-rocket"></i>
-   <h3>Performance Optimization</h3>
-   <p>Website & app speed optimization, SEO-ready structure, and smooth animations for professional UX.</p>
+   <h3>Fast Delivery</h3>
+   <p>Super-efficient development with optimized workflow.</p>
+  </div>
+
+  <div class="feature-box">
+   <i class="fa-solid fa-award"></i>
+   <h3>Premium Quality</h3>
+   <p>Only top-tier UI/UX and engineering standards.</p>
+  </div>
+
+  <div class="feature-box">
+   <i class="fa-solid fa-headset"></i>
+   <h3>24/7 Support</h3>
+   <p>Your project stays protected and updated.</p>
+  </div>
+
  </div>
-</section>
-
-<!-- FEATURES -->
-<h2 class="section-title">Why Choose Us</h2>
-<section class="features-list">
- <div class="feature-box"><i class="fa-solid fa-bolt"></i><h4>Lightning Fast</h4><p>We prioritize speed and performance in every project.</p></div>
- <div class="feature-box"><i class="fa-solid fa-shield"></i><h4>Secure & Reliable</h4><p>Security-first approach to protect your digital assets.</p></div>
- <div class="feature-box"><i class="fa-solid fa-thumbs-up"></i><h4>High Quality</h4><p>Professional UI/UX and clean code for scalable solutions.</p></div>
- <div class="feature-box"><i class="fa-solid fa-headset"></i><h4>Support 24/7</h4><p>Dedicated support for clients across the globe.</p></div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
- <h2>Ready to Build Your Project?</h2>
- <p>Contact us today and let's craft a digital experience that stands out.</p>
- <button onclick="window.location.href='contact.html'">Get in Touch</button>
 </section>
 
 <footer>
  <p>© 2024 ITZFIZZ — All Rights Reserved</p>
- <div><i class="fa-brands fa-facebook"></i><i class="fa-brands fa-instagram"></i><i class="fa-brands fa-x-twitter"></i></div>
+ <div>
+  <i class="fa-brands fa-facebook"></i>
+  <i class="fa-brands fa-instagram"></i>
+  <i class="fa-brands fa-x-twitter"></i>
+ </div>
 </footer>
 
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-/* HERO */
+/* Intro Animations */
 gsap.to("#title",{opacity:1,y:-10,duration:1.5});
-gsap.to("#subtitle",{opacity:1,y:-5,duration:1.8,delay:0.3});
+gsap.to("#subtitle",{opacity:1,y:-5,duration:1.8,delay:.3});
 
-/* SERVICE CARDS */
-gsap.utils.toArray(".service-card").forEach(card=>{
- gsap.to(card,{scrollTrigger:{trigger:card,start:"top 85%"},opacity:1,y:0,duration:1.2});
+/* PROJECT CARD Reveal */
+gsap.utils.toArray(".project-card").forEach(card=>{
+ gsap.to(card,{
+   scrollTrigger:{trigger:card,start:"top 85%"},
+   opacity:1,y:0,duration:1.2
+ });
 });
 
-/* FEATURES */
-gsap.utils.toArray(".feature-box").forEach(box=>{
- gsap.to(box,{scrollTrigger:{trigger:box,start:"top 85%"},opacity:1,y:0,duration:1.2});
+/* CASE STUDIES REVEAL */
+gsap.utils.toArray(".case-box").forEach(box=>{
+ gsap.to(box,{
+   scrollTrigger:{trigger:box,start:"top 85%"},
+   opacity:1,y:0,duration:1.3
+ });
 });
 
-/* CTA */
-gsap.to(".cta-section",{scrollTrigger:{trigger:".cta-section",start:"top 85%"},opacity:1,y:0,duration:1.5});
+/* FEATURES REVEAL */
+gsap.utils.toArray(".feature-box").forEach(f=>{
+ gsap.to(f,{
+   scrollTrigger:{trigger:f,start:"top 85%"},
+   opacity:1,y:0,duration:1.2
+ });
+});
+
+/* FILTER SYSTEM */
+function filter(type){
+ let cards=document.querySelectorAll(".project-card");
+ document.querySelectorAll(".filters button").forEach(btn=>btn.classList.remove("active"));
+ event.target.classList.add("active");
+
+ cards.forEach(card=>{
+   card.style.display = (type==="all" || card.dataset.type===type) ? "block" : "none";
+ });
+}
 </script>
 
 </body>
